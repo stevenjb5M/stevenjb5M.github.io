@@ -9,22 +9,17 @@
 </head>
 <body>
     <header id="header">
-        <h1>Welcome to your all in one study center for the New Testament</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Welcome to the Comprehensive New Testament Study Hub</h1>
     </header>
-    <main id="body">
+    <main id="main">
         
         <section id="chapter-selection">
-            <h2>Where are you studying today?</h2>
-            <select title="chapter-selection" id="chapter-dropdown">
+            <h2 id="studying-title" >Where are you studying today?</h2>
+            <select title="chapter-selection" id="chapter-dropdown" onchange="chapterSelectionChanged()">
                 <option value="">Select a chapter</option>
             </select>
-            <p>This is the contact section of the website.</p>
+
+            <button id="study-button">Study &rarr;</button>
         </section>
         
     </main>

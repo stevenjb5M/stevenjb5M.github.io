@@ -10,15 +10,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     onStart();
 });
 
+const studyButton = document.getElementById('study-button');
+
 
 function onStart() {
     //populate chapters from jason
-    const dropdown = document.getElementById('chapterDropdown');
-    chapters.forEach(chapter => {
+    const dropdown = document.getElementById('chapter-dropdown');
+    books.forEach(chapter => {
     const option = document.createElement('option');
     option.value = chapter;
     option.textContent = chapter;
     dropdown.appendChild(option);
-});
+    });
+}
+
+function chapterSelectionChanged() {
+    studyButton.style.visibility = 'visible';
 
 }

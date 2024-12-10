@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
 /* Header styles */
 #header {
     background-color: #333;
@@ -7,9 +14,9 @@
 }
 
 /* Body styles */
-#body {
+#main {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
 }
 
@@ -31,6 +38,36 @@
     margin-top: 50px;
 }
 
+#studying-title {
+    font-size: 2em;
+    text-align: center;
+}
+
 #chapter-dropdown {
-    font-size: 50px;
+    font-size: 25px;
+    border-radius: 5px;
+    width: 50%;
+    height: 40px;
+    justify-self: center;
+    margin-top: 16px;
+}
+
+#study-button {
+    width: 30%;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 25px;
+    justify-self: center;
+    color: cornflowerblue;
+    background-color: white;
+    border: 2px solid cornflowerblue;
+    border-radius: 7px;
+    visibility: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+#study-button:hover {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
 }
