@@ -5,10 +5,20 @@ const books = [
     "1 John", "2 John", "3 John", "Jude", "Revelation"
 ];
 
-const dropdown = document.getElementById('chapterDropdown');
-chapters.forEach(chapter => {
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    onStart();
+});
+
+
+function onStart() {
+    //populate chapters from jason
+    const dropdown = document.getElementById('chapterDropdown');
+    chapters.forEach(chapter => {
     const option = document.createElement('option');
     option.value = chapter;
     option.textContent = chapter;
     dropdown.appendChild(option);
 });
+
+}
