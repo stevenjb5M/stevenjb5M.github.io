@@ -25,9 +25,12 @@
 }
 
 #chapter-selection {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+    width: 100%;
+    justify-content: center;
+    display: grid;
+    margin-top: 50px;
+}
+
+#chapter-dropdown {
+    font-size: 50px;
 }
