@@ -3,35 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steven Brown's Website</title>
+    <title>New Testament Study Site</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to dSteven Brown's Website</h1>
+    <header id="header">
+        <h1>Welcome to your all in one study center for the New Testament</h1>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="body">
         <section id="home">
             <h2>Home</h2>
             <p>This is the home section of the website.</p>
         </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>This is the about section of the website.</p>
+        <section id="chapter selection">
+            <h2>Where are you studying today?</h2>
+            <select title="chapter-selection" id="chapterDropdown">
+                <option value="">Select a chapter</option>
+            </select>
+            <script>
+                const chapters = [
+                    "Matthew 1", "Matthew 2", "Matthew 3", "Matthew 4", "Matthew 5",
+                    "Mark 1", "Mark 2", "Mark 3", "Mark 4", "Mark 5",
+                    "Luke 1", "Luke 2", "Luke 3", "Luke 4", "Luke 5",
+                    "John 1", "John 2", "John 3", "John 4", "John 5"
+                ];
+
+                const dropdown = document.getElementById('chapterDropdown');
+                chapters.forEach(chapter => {
+                    const option = document.createElement('option');
+                    option.value = chapter;
+                    option.textContent = chapter;
+                    dropdown.appendChild(option);
+                });
+            </script>
+            <p>This is the contact section of the website.</p>
         </section>
         <section id="contact">
             <h2>Contact</h2>
             <p>This is the contact section of the website.</p>
         </section>
     </main>
-    <footer>
+    <footer id="footer">
         <p>&copy; 2023 Steven Brown. All rights reserved.</p>
     </footer>
 </body>
