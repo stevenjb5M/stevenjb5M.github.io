@@ -26,22 +26,6 @@
             <select title="chapter-selection" id="chapterDropdown">
                 <option value="">Select a chapter</option>
             </select>
-            <script>
-                const chapters = [
-                    "Matthew 1", "Matthew 2", "Matthew 3", "Matthew 4", "Matthew 5",
-                    "Mark 1", "Mark 2", "Mark 3", "Mark 4", "Mark 5",
-                    "Luke 1", "Luke 2", "Luke 3", "Luke 4", "Luke 5",
-                    "John 1", "John 2", "John 3", "John 4", "John 5"
-                ];
-
-                const dropdown = document.getElementById('chapterDropdown');
-                chapters.forEach(chapter => {
-                    const option = document.createElement('option');
-                    option.value = chapter;
-                    option.textContent = chapter;
-                    dropdown.appendChild(option);
-                });
-            </script>
             <p>This is the contact section of the website.</p>
         </section>
         <section id="contact">
