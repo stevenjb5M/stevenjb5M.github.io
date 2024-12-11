@@ -17,7 +17,12 @@ const studyButton = document.getElementById('study-button');
 const dropdown = document.getElementById('chapter-dropdown');
 const chapterTitle = document.getElementById('chapter-title');
 const chapterSummary = document.getElementById('chapter-summary');
+const author = document.getElementById('author-span');
+const chapterNumber = document.getElementById('chapter-span');
+const chaptersDiv = document.getElementById('chapters-div');
 let bookSummaries = {};
+let bookAuthors = {};
+let chapterNumbers = {};
 
 function onStart() {
     //populate chapters from json
@@ -52,9 +57,58 @@ function studyChapter() {
         chapterOverview.style.display = 'block';
 
         chapterTitle.textContent = currentChapter;
+        chapterNumber.textContent = chapterNumbers[currentChapter];
+        author.textContent = bookAuthors[currentChapter];
         chapterSummary.textContent = getSummary(currentChapter);
 
+        populateChaptersDiv(currentChapter);
+        
     }
+}
+
+function populateChaptersDiv(currentChapter) {
+    let chapterNum = chapterNumbers[currentChapter];
+
+    // Clear all child nodes
+    while (chaptersDiv.firstChild) {
+        chaptersDiv.removeChild(chaptersDiv.firstChild);
+    }
+
+    for (let i = 1; i <= chapterNum; i++) {
+        const chapter = document.createElement('button');
+        chapter.className = 'chapter-button';
+        chapter.onclick = () => openChapter(currentChapter, i);
+        chapter.textContent = i;
+        chaptersDiv.appendChild(chapter);
+    }
+}
+
+function openChapter(book, chapter) {
+    console.log("Opening " + book + " Chapter " + chapter);
+    let reader = document.getElementById('reader');
+    reader.style.display = "block";
+    
+
+    let readerBackground = document.getElementById('reader-background');
+    readerBackground.style.display = "absolute";
+
+    let readerTitle = document.getElementById('reader-title');
+
+    readerTitle.textContent = "Chapter " + chapter;
+
+    fetch(`/JSON/${book}/${chapter}.json`)
+        .then(response => response.json())
+        .then(data => {
+            let readerContent = document.getElementById('verses');
+            readerContent.innerHTML = ''; // Clear previous content
+
+            data.verses.forEach(verse => {
+                let verseElement = document.createElement('p');
+                verseElement.textContent = `${verse.verse}: ${verse.text}`;
+                readerContent.appendChild(verseElement);
+            });
+        })
+        .catch(error => console.error('Error fetching chapter:', error));
 }
 
 function getSummary(currentChapter) {
@@ -67,5 +121,17 @@ function getJson() {
     .then(response => response.json())
     .then(data => {
         bookSummaries = data;
+    }); 
+
+    fetch('bookAuthors.json')
+    .then(response => response.json())
+    .then(data => {
+        bookAuthors = data;
+    }); 
+
+    fetch('chapterNumbers.json')
+    .then(response => response.json())
+    .then(data => {
+        chapterNumbers = data;
     }); 
 }

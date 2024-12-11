@@ -108,3 +108,33 @@ body {
     margin-left: 5%;
     margin-right: 5%;
 }
+
+.chapter-button {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    color: cornflowerblue;
+    background-color: white;
+    border: 2px solid cornflowerblue;
+    border-radius: 7px;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.chapter-button:hover {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+}
+
+#chapters-div {
+    display: table;
+}
+
+#reader {
+    display: none;
+    position: absolute;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 5%;
+}
