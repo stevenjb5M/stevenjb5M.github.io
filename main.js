@@ -1,5 +1,7 @@
+import bookSummaries from 'bookSummaries.json' assert { type: 'json' };
+
 const books = [
-    "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians",
+    "Acts", "Romans", "1 Corinthians", "2 Corinthians",
     "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
     "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter", "2 Peter",
     "1 John", "2 John", "3 John", "Jude", "Revelation"
@@ -10,8 +12,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     onStart();
 });
 
+const chapterSelection = document.getElementById('chapter-selection');
+const chapterOverview = document.getElementById('chapter-overview');
 const studyButton = document.getElementById('study-button');
-
+const chapterTitle = document.getElementById('chapter-title');
+const chapterSummary = document.getElementById('chapter-summary');
+const bookSummariesString = JSON.stringify(bookSummaries);
 
 function onStart() {
     //populate chapters from jason
@@ -27,4 +33,23 @@ function onStart() {
 function chapterSelectionChanged() {
     studyButton.style.visibility = 'visible';
 
+}
+
+function studyChapter() {
+    currentChapter = document.getElementById('chapter-dropdown').value;
+
+    if (currentChapter) {
+        chapterSelection.style.display = 'none';   
+        studyButton.style.display = 'none';
+        chapterOverview.style.display = 'block';
+
+        chapterTitle.textContent = currentChapter;
+        chapterSummary.textContent = getSummary(currentChapter);
+
+    }
+}
+
+function getSummary(currentChapter) {
+    summary = bookSummaries[currentChapter];
+    return summary;
 }

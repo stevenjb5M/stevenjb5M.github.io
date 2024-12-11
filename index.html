@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Testament Study Site</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="main.js" defer></script>
+    <script type="module" src="main.js"></script>
 </head>
 <body>
     <header id="header">
@@ -19,12 +19,17 @@
                 <option value="">Select a chapter</option>
             </select>
 
-            <button id="study-button">Study &rarr;</button>
+            <button onclick="studyChapter()" id="study-button">Study &rarr;</button>
+        </section>
+
+        <section id="chapter-overview">
+            <h2 id="chapter-title" >1st Timothy</h2>
+            <p id="chapter-summary"></p>
         </section>
         
     </main>
     <footer id="footer">
-        <p>&copy; 2023 Steven Brown. All rights reserved.</p>
+        <p>&copy; 2024 Steven Brown. All rights reserved.</p>
     </footer>
 </body>
 </html>
