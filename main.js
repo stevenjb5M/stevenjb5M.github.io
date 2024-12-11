@@ -45,6 +45,8 @@ function backToChapterSelection() {
     chapterSelection.style.display = 'grid';   
     studyButton.style.display = 'block';
     chapterOverview.style.display = 'none';
+    let reader = document.getElementById('reader');
+    reader.style.display = "none";
     dropdown.selectedIndex = 0;
 }
 
