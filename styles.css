@@ -72,10 +72,39 @@ body {
     border: none;
 }
 
+#back-to-study-button {
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 25px;
+    justify-self: center;
+    color: cornflowerblue;
+    background-color: white;
+    border: 2px solid cornflowerblue;
+    border-radius: 7px;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+#back-to-study-button:hover {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+}
+
+#chapter-title {
+    font-size: 2em;
+    margin-top: 50px;
+}
+
+#chapter-summary {
+    width: 70%;
+}
+
 #chapter-overview {
     display: none;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    margin-top: 50px;
-    margin: 10%;
+    margin-top: 25px;
+    margin-left: 5%;
+    margin-right: 5%;
 }

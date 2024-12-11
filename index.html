@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Testament Study Site</title>
     <link rel="stylesheet" href="styles.css">
-    <script type="module" src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <header id="header">
@@ -23,6 +23,7 @@
         </section>
 
         <section id="chapter-overview">
+            <button onclick="backToChapterSelection()" id="back-to-study-button">&larr; Back</button>
             <h2 id="chapter-title" >1st Timothy</h2>
             <p id="chapter-summary"></p>
         </section>

@@ -1,4 +1,3 @@
-import bookSummaries from 'bookSummaries.json' assert { type: 'json' };
 
 const books = [
     "Acts", "Romans", "1 Corinthians", "2 Corinthians",
@@ -15,12 +14,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 const chapterSelection = document.getElementById('chapter-selection');
 const chapterOverview = document.getElementById('chapter-overview');
 const studyButton = document.getElementById('study-button');
+const dropdown = document.getElementById('chapter-dropdown');
 const chapterTitle = document.getElementById('chapter-title');
 const chapterSummary = document.getElementById('chapter-summary');
-const bookSummariesString = JSON.stringify(bookSummaries);
+let bookSummaries = {};
 
 function onStart() {
-    //populate chapters from jason
+    //populate chapters from json
     const dropdown = document.getElementById('chapter-dropdown');
     books.forEach(chapter => {
     const option = document.createElement('option');
@@ -28,11 +28,19 @@ function onStart() {
     option.textContent = chapter;
     dropdown.appendChild(option);
     });
+
+    getJson();
 }
 
 function chapterSelectionChanged() {
     studyButton.style.visibility = 'visible';
+}
 
+function backToChapterSelection() {
+    chapterSelection.style.display = 'grid';   
+    studyButton.style.display = 'block';
+    chapterOverview.style.display = 'none';
+    dropdown.selectedIndex = 0;
 }
 
 function studyChapter() {
@@ -50,6 +58,14 @@ function studyChapter() {
 }
 
 function getSummary(currentChapter) {
-    summary = bookSummaries[currentChapter];
+    let summary = bookSummaries[currentChapter];
     return summary;
+}
+
+function getJson() {
+    fetch('bookSummaries.json')
+    .then(response => response.json())
+    .then(data => {
+        bookSummaries = data;
+    }); 
 }
