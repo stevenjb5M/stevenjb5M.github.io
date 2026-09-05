@@ -1,0 +1,5 @@
+# Authorized sellers for the apps published from this domain.
+# Format: IAB Tech Lab app-ads.txt. AdMob crawls this file at the ROOT of the
+# developer website listed on the App Store, which is this domain -- NOT the
+# /space-outpost/ subpath the marketing URL points at.
+google.com, pub-8920822364276586, DIRECT, f08c47fec0942fa0
